@@ -1,24 +1,29 @@
 import React from 'react';
-import logo from './logo.svg';
+
 import './App.css';
 
 function App() {
+  const API_URL = 'https://api.chucknorris.io/jokes/random'
+
+  const [joke, setJoke] = React.useState('')
+
+  const generateJoke = () => {
+    fetch(API_URL)
+      .then(res => res.json())
+      .then(data => setJoke(data.value));
+  }
+
+
+  React.useEffect(() => {
+    generateJoke();
+  }, [])
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h2>Chuck Norris Jokes Generator</h2>
+      <p>{joke}</p>
+      <button onClick={generateJoke}>Get another quote <span></span></button>
     </div>
   );
 }
