@@ -23,7 +23,9 @@ function App() {
     <div className="App">
       <h2>Chuck Norris Jokes Generator</h2>
       <p>{joke}</p>
-      <button onClick={generateJoke}>Get another quote <span></span></button>
+      <button onClick={generateJoke}>
+         next joke <span role="img" aria-label="smile">😄</span>
+      </button>
     </div>
   );
 }
