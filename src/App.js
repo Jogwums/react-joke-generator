@@ -11,7 +11,6 @@ function App() {
   const API_URL = 'https://api.chucknorris.io/jokes/random'
 
   const [joke, setJoke] = React.useState('')
-  // const [loading, setLoading] = React.useState(false)
 
   const generateJoke = () => {
     trackPromise(
@@ -26,12 +25,12 @@ function App() {
        return (
         promiseInProgress && 
         <div
-     style={{
-        width: "100%",
-        height: "50",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center"
+          style={{
+            width: "100%",
+            height: "50",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center"
       }}
     >
       <Loader type="ThreeDots" color="rebeccapurple" height="50" width="50" />
